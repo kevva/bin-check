@@ -1,0 +1,8 @@
+language: node_js
+node_js:
+  - '0.10'
+before_script:
+  - chmod +x test/fixtures/optipng-linux
+  - chmod 755 test/fixtures/optipng-linux
+  - chmod +x test/fixtures/optipng-osx
+  - chmod 755 test/fixtures/optipng-osx

@@ -1,0 +1,31 @@
+{
+  "name": "bin-check",
+  "version": "0.1.0",
+  "description": "Check if a binary is working",
+  "keywords": [],
+  "homepage": "https://github.com/kevva/bin-check",
+  "bugs": "https://github.com/kevva/bin-check/issues",
+  "author": {
+    "name": "Kevin Mårtensson",
+    "email": "kevinmartensson@gmail.com",
+    "url": "https://github.com/kevva"
+  },
+  "license": "MIT",
+  "repository": "git://github.com/kevva/bin-check.git",
+  "scripts": {
+    "test": "mocha --reporter list"
+  },
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {
+    "executable": "~0.1.0"
+  },
+  "devDependencies": {
+    "mocha": "~1.17.0"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  }
+}
