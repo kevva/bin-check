@@ -32,7 +32,7 @@ module.exports = function (name, cmd, cb) {
             bin = spawn(name, cmd);
 
             bin.on('error', function (err) {
-                return cb(null, err);
+                return cb(err);
             });
 
             bin.on('exit', function (code) {

@@ -14,7 +14,7 @@ describe('binCheck()', function () {
         }
 
         binCheck(bin, function (err, works) {
-            cb(assert.equal(works, true));
+            cb(assert(works));
         });
     });
 });
