@@ -1,6 +1,6 @@
 {
   "name": "bin-check",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Check if a binary is working",
   "keywords": [],
   "homepage": "https://github.com/kevva/bin-check",
