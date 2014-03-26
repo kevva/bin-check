@@ -20,7 +20,8 @@
     "index.js"
   ],
   "dependencies": {
-    "executable": "~0.1.0"
+    "executable": "~0.1.0",
+    "win-spawn": "~2.0.0"
   },
   "devDependencies": {
     "mocha": "~1.17.0"
