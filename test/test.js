@@ -11,6 +11,8 @@ describe('binCheck()', function () {
 
         if (process.platform === 'darwin') {
             bin = path.join(__dirname, 'fixtures/optipng-osx');
+        } else if (process.platform === 'win32') {
+            bin = path.join(__dirname, 'fixtures/optipng-win32.exe');
         }
 
         binCheck(bin, function (err, works) {
