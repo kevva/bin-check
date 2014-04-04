@@ -16,7 +16,10 @@ describe('binCheck()', function () {
         }
 
         binCheck(bin, '--version', function (err, works, msg) {
-            assert(msg.indexOf('0.7.4'));
+            if (msg) {
+                assert(msg.indexOf('0.7.4') !== -1);
+            }
+
             assert(works);
             cb();
         });
