@@ -24,6 +24,8 @@ module.exports = function (name, cmd, cb) {
     cmd = Array.isArray(cmd) ? cmd : [cmd];
 
     executable(name, function (err, works) {
+        var msg;
+
         if (err) {
             return cb(err);
         }
@@ -35,8 +37,13 @@ module.exports = function (name, cmd, cb) {
                 return cb(err);
             });
 
+            bin.stdout.setEncoding('utf8');
+            bin.stdout.on('data', function (data) {
+                msg = data;
+            });
+
             bin.on('exit', function (code) {
-                return cb(null, code === 0 ? true : false);
+                return cb(null, code === 0 ? true : false, msg);
             });
         } else {
             return cb(null, false);

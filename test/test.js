@@ -15,8 +15,10 @@ describe('binCheck()', function () {
             bin = path.join(__dirname, 'fixtures/optipng-win32.exe');
         }
 
-        binCheck(bin, function (err, works) {
-            cb(assert(works));
+        binCheck(bin, '--version', function (err, works, msg) {
+            assert(msg.indexOf('0.7.4'));
+            assert(works);
+            cb();
         });
     });
 });
