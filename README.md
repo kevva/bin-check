@@ -1,4 +1,4 @@
-# bin-check [![Build Status](https://travis-ci.org/kevva/bin-check.png?branch=master)](https://travis-ci.org/kevva/bin-check)
+# bin-check [![Build Status](https://travis-ci.org/kevva/bin-check.svg?branch=master)](https://travis-ci.org/kevva/bin-check)
 
 > Check if a binary is working in Node.js by checking its exit code.
 
