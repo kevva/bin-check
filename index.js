@@ -39,7 +39,7 @@ module.exports = function (name, cmd, cb) {
 
             bin.stdout.setEncoding('utf8');
             bin.stdout.on('data', function (data) {
-                msg = data;
+                msg += data;
             });
 
             bin.on('exit', function (code) {
