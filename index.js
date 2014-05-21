@@ -1,7 +1,7 @@
 'use strict';
 
 var executable = require('executable');
-var spawn = require('win-spawn');
+var spawn = require('child_process').spawn;
 
 /**
  * Check if a executable is working correctly by checking it's exit code

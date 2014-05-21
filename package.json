@@ -25,8 +25,7 @@
     "test"
   ],
   "dependencies": {
-    "executable": "^0.1.0",
-    "win-spawn": "^2.0.0"
+    "executable": "^0.1.0"
   },
   "devDependencies": {
     "mocha": "^1.18.2"
