@@ -13,13 +13,10 @@ $ npm install --save bin-check
 ```js
 var binCheck = require('bin-check');
 
-binCheck('/bin/sh', ['--version'], function (err, works, msg) {
+binCheck('/bin/sh', ['--version'], function (err, works) {
     if (err) {
         throw err;
     }
-    
-    console.log(msg);
-    // => GNU bash, version 3.2.51(1)-release-(x86_64-apple-darwin13)
 
     console.log(works);
     // => true
@@ -28,7 +25,7 @@ binCheck('/bin/sh', ['--version'], function (err, works, msg) {
 
 ## API
 
-### binCheck(name, cmd, cb)
+### binCheck(bin, cmd, cb)
 
 Check if a binary is working by checking its exit code. Use `cmd` to test against
 custom commands. Defaults to `--help`.

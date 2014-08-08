@@ -6,45 +6,31 @@ var spawn = require('child_process').spawn;
 /**
  * Check if a executable is working correctly by checking it's exit code
  *
- * @param {String} name
+ * @param {String} bin
  * @param {String|Array} cmd
  * @param {Function} cb
  * @api public
  */
 
-module.exports = function (name, cmd, cb) {
-    var bin;
-
+module.exports = function (bin, cmd, cb) {
     if (typeof cmd === 'function') {
         cb = cmd;
         cmd = ['--help'];
     }
 
-    cmd = cmd || ['--help'];
-    cmd = Array.isArray(cmd) ? cmd : [cmd];
-
-    executable(name, function (err, works) {
-        var msg;
-
+    executable(bin, function (err, w) {
         if (err) {
             return cb(err);
         }
 
-        if (works) {
-            bin = spawn(name, cmd);
-
-            bin.on('error', function (err) {
-                return cb(err);
-            });
-
-            bin.stdout.setEncoding('utf8');
-            bin.stdout.on('data', function (data) {
-                msg += data;
-            });
-
-            bin.on('exit', function (code) {
-                return cb(null, code === 0 ? true : false, msg);
-            });
+        if (w) {
+            spawn(bin, cmd)
+                .on('error', function (err) {
+                    return cb(err);
+                })
+                .on('exit', function (code) {
+                    return cb(null, code === 0 ? true : false);
+                });
         } else {
             return cb(null, false);
         }
