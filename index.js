@@ -7,7 +7,7 @@ var spawn = require('child_process').spawn;
  * Check if a executable is working correctly by checking it's exit code
  *
  * @param {String} bin
- * @param {String|Array} cmd
+ * @param {Array} cmd
  * @param {Function} cb
  * @api public
  */
