@@ -32,7 +32,7 @@ module.exports = function (bin, cmd, cb) {
                     return cb(null, code === 0 ? true : false);
                 });
         } else {
-            return cb(null, false);
+            return cb(new Error('Couldn\'t execute the `' + bin + '` binary. Make sure it has the right permissions.'));
         }
     });
 };
