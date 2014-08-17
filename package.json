@@ -1,6 +1,6 @@
 {
   "name": "bin-check",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "Check if a binary is working",
   "license": "MIT",
   "repository": "kevva/bin-check",
