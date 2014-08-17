@@ -25,7 +25,7 @@
     "test"
   ],
   "dependencies": {
-    "executable": "^0.1.0"
+    "executable": "^1.0.0"
   },
   "devDependencies": {
     "mocha": "^1.18.2"
