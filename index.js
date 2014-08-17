@@ -20,19 +20,23 @@ module.exports = function (bin, cmd, cb) {
 
     executable(bin, function (err, w) {
         if (err) {
-            return cb(err);
+            cb(err);
+            return;
         }
 
         if (w) {
             spawn(bin, cmd)
                 .on('error', function (err) {
-                    return cb(err);
+                    cb(err);
+                    return;
                 })
                 .on('exit', function (code) {
-                    return cb(null, code === 0 ? true : false);
+                    cb(null, code === 0 ? true : false);
+                    return;
                 });
         } else {
-            return cb(new Error('Couldn\'t execute the `' + bin + '` binary. Make sure it has the right permissions.'));
+            cb(new Error('Couldn\'t execute the `' + bin + '` binary. Make sure it has the right permissions.'));
+            return;
         }
     });
 };
