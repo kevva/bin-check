@@ -1,23 +1,22 @@
-/*global describe, it */
 'use strict';
 
-var assert = require('assert');
 var binCheck = require('../');
 var path = require('path');
+var test = require('ava');
 
-describe('binCheck()', function () {
-    it('should test a binary and return true', function (cb) {
-        var bin = path.join(__dirname, 'fixtures/optipng-linux');
+test('test a binary and return true', function (t) {
+    t.plan(2);
 
-        if (process.platform === 'darwin') {
-            bin = path.join(__dirname, 'fixtures/optipng-osx');
-        } else if (process.platform === 'win32') {
-            bin = path.join(__dirname, 'fixtures/optipng-win32.exe');
-        }
+    var bin = path.join(__dirname, 'fixtures/optipng-linux');
 
-        binCheck(bin, function (err, works) {
-            assert(works);
-            cb();
-        });
+    if (process.platform === 'darwin') {
+        bin = path.join(__dirname, 'fixtures/optipng-osx');
+    } else if (process.platform === 'win32') {
+        bin = path.join(__dirname, 'fixtures/optipng-win32.exe');
+    }
+
+    binCheck(bin, function (err, works) {
+        t.assert(!err);
+        t.assert(works);
     });
 });
