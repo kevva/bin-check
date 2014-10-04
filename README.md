@@ -14,12 +14,12 @@ $ npm install --save bin-check
 var binCheck = require('bin-check');
 
 binCheck('/bin/sh', ['--version'], function (err, works) {
-    if (err) {
-        throw err;
-    }
+	if (err) {
+		throw err;
+	}
 
-    console.log(works);
-    // => true
+	console.log(works);
+	// => true
 });
 ```
 
