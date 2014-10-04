@@ -1,4 +1,4 @@
-# bin-check [![Build Status](https://travis-ci.org/kevva/bin-check.svg?branch=master)](https://travis-ci.org/kevva/bin-check)
+# bin-check [![Build Status](http://img.shields.io/travis/kevva/bin-check.svg?style=flat)](https://travis-ci.org/kevva/bin-check)
 
 > Check if a binary is working by checking its exit code
 
