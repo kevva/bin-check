@@ -18,22 +18,24 @@ module.exports = function (bin, cmd, cb) {
 		cmd = ['--help'];
 	}
 
-	executable(bin, function (err, w) {
+	executable(bin, function (err, works) {
 		if (err) {
 			cb(err);
 			return;
 		}
 
-		if (w) {
-			spawn(bin, cmd)
-				.on('error', function (err) {
-					cb(err);
-					return;
-				})
-				.on('exit', function (code) {
-					cb(null, code === 0 ? true : false);
-					return;
-				});
+		if (works) {
+			var cp = spawn(bin, cmd);
+
+			cp.on('error', function (err) {
+				cb(err);
+				return;
+			});
+
+			cp.on('exit', function (code) {
+				cb(null, code === 0 ? true : false);
+				return;
+			});
 		} else {
 			cb(new Error('Couldn\'t execute the `' + bin + '` binary. Make sure it has the right permissions.'));
 			return;
