@@ -24,21 +24,21 @@ module.exports = function (bin, cmd, cb) {
 			return;
 		}
 
-		if (works) {
-			var cp = spawn(bin, cmd);
-
-			cp.on('error', function (err) {
-				cb(err);
-				return;
-			});
-
-			cp.on('exit', function (code) {
-				cb(null, code === 0 ? true : false);
-				return;
-			});
-		} else {
+		if (!works) {
 			cb(new Error('Couldn\'t execute the `' + bin + '` binary. Make sure it has the right permissions.'));
 			return;
 		}
+
+		var cp = spawn(bin, cmd);
+
+		cp.on('error', function (err) {
+			cb(err);
+			return;
+		});
+
+		cp.on('exit', function (code) {
+			cb(null, code === 0 ? true : false);
+			return;
+		});
 	});
 };
