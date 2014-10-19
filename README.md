@@ -27,8 +27,24 @@ binCheck('/bin/sh', ['--version'], function (err, works) {
 
 ### binCheck(bin, cmd, cb)
 
-Check if a binary is working by checking its exit code. Use `cmd` to test against
-custom commands. Defaults to `--help`.
+#### bin
+
+Type: `String`
+
+Path to the binary.
+
+#### cmd
+
+Type: `Array`  
+Default: `['--help']`
+
+Commands to run the binary with.
+
+#### cb(err, works)
+
+Type: `Function`
+
+`works` is a `Boolean` which returns `true` if the binary is working correctly.
 
 ## License
 
