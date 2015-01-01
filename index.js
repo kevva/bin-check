@@ -31,11 +31,7 @@ module.exports = function (bin, cmd, cb) {
 
 		var cp = spawn(bin, cmd);
 
-		cp.on('error', function (err) {
-			cb(err);
-			return;
-		});
-
+		cp.on('error', cb);
 		cp.on('exit', function (code) {
 			cb(null, code === 0 ? true : false);
 			return;
