@@ -16,7 +16,7 @@ test('test a binary and return true', function (t) {
 	}
 
 	binCheck(bin, function (err, works) {
-		t.assert(!err);
+		t.assert(!err, err);
 		t.assert(works);
 	});
 });

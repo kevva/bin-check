@@ -3,15 +3,6 @@
 var executable = require('executable');
 var spawn = require('child_process').spawn;
 
-/**
- * Check if a executable is working correctly by checking it's exit code
- *
- * @param {String} bin
- * @param {Array} cmd
- * @param {Function} cb
- * @api public
- */
-
 module.exports = function (bin, cmd, cb) {
 	if (typeof cmd === 'function') {
 		cb = cmd;
