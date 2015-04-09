@@ -1,8 +1,8 @@
 'use strict';
 
-var binCheck = require('../');
 var path = require('path');
 var test = require('ava');
+var binCheck = require('../');
 
 test('test a binary and return true', function (t) {
 	t.plan(2);
@@ -17,6 +17,6 @@ test('test a binary and return true', function (t) {
 
 	binCheck(bin, function (err, works) {
 		t.assert(!err, err);
-		t.assert(works);
+		t.assert(works, works);
 	});
 });

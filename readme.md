@@ -2,11 +2,13 @@
 
 > Check if a binary is working by checking its exit code
 
+
 ## Install
 
-```sh
+```
 $ npm install --save bin-check
 ```
+
 
 ## Usage
 
@@ -14,37 +16,35 @@ $ npm install --save bin-check
 var binCheck = require('bin-check');
 
 binCheck('/bin/sh', ['--version'], function (err, works) {
-	if (err) {
-		throw err;
-	}
-
 	console.log(works);
 	// => true
 });
 ```
 
+
 ## API
 
-### binCheck(bin, cmd, cb)
+### binCheck(binary, command, callback)
 
-#### bin
+#### binary
 
-Type: `String`
+Type: `string`
 
 Path to the binary.
 
-#### cmd
+#### command
 
-Type: `Array`  
+Type: `array`  
 Default: `['--help']`
 
 Commands to run the binary with.
 
-#### cb(err, works)
+#### callback(err, works)
 
-Type: `Function`
+Type: `function`
 
-`works` is a `Boolean` which returns `true` if the binary is working correctly.
+`works` is a `boolean` which returns `true` if the binary is working correctly.
+
 
 ## License
 

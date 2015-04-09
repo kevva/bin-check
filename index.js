@@ -1,7 +1,7 @@
 'use strict';
 
-var executable = require('executable');
 var spawn = require('child_process').spawn;
+var executable = require('executable');
 
 module.exports = function (bin, cmd, cb) {
 	if (typeof cmd === 'function') {
@@ -25,7 +25,6 @@ module.exports = function (bin, cmd, cb) {
 		cp.on('error', cb);
 		cp.on('exit', function (code) {
 			cb(null, code === 0 ? true : false);
-			return;
 		});
 	});
 };
