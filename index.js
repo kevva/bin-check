@@ -25,7 +25,7 @@ module.exports = function (bin, cmd, cb) {
 
 		cp.on('error', cb);
 		cp.on('exit', function (code) {
-			cb(null, code === 0 ? true : false);
+			cb(null, code === 0);
 		});
 	});
 };
