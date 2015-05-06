@@ -19,6 +19,9 @@ binCheck('/bin/sh', ['--version'], function (err, works) {
 	console.log(works);
 	// => true
 });
+
+binCheck.sync('/bin/sh');
+// => true
 ```
 
 
@@ -44,6 +47,21 @@ Commands to run the binary with.
 Type: `function`
 
 `works` is a `boolean` which returns `true` if the binary is working correctly.
+
+### binCheck.sync(binary, command, callback)
+
+#### binary
+
+Type: `string`
+
+Path to the binary.
+
+#### command
+
+Type: `array`  
+Default: `['--help']`
+
+Commands to run the binary with.
 
 
 ## License
