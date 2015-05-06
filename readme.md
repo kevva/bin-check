@@ -48,7 +48,7 @@ Type: `function`
 
 `works` is a `boolean` which returns `true` if the binary is working correctly.
 
-### binCheck.sync(binary, command, callback)
+### binCheck.sync(binary, command)
 
 #### binary
 
