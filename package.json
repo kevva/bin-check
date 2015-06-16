@@ -25,8 +25,7 @@
     "test"
   ],
   "dependencies": {
-    "executable": "^1.0.0",
-    "spawn-sync": "^1.0.6"
+    "executable": "^1.0.0"
   },
   "devDependencies": {
     "ava": "^0.0.4"
