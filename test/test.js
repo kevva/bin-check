@@ -4,7 +4,7 @@ var test = require('ava');
 var binCheck = require('../');
 
 test('test a binary and return true', function (t) {
-	t.plan(2);
+	t.plan(1);
 
 	var bin = path.join(__dirname, 'fixtures/optipng-linux');
 
@@ -14,8 +14,7 @@ test('test a binary and return true', function (t) {
 		bin = path.join(__dirname, 'fixtures/optipng-win32.exe');
 	}
 
-	binCheck(bin, function (err, works) {
-		t.assert(!err, err);
+	binCheck(bin).then(function (works) {
 		t.assert(works, works);
 	});
 });

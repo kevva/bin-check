@@ -25,7 +25,8 @@
     "test"
   ],
   "dependencies": {
-    "executable": "^1.0.0"
+    "executable": "^2.0.0",
+    "pinkie-promise": "^1.0.0"
   },
   "devDependencies": {
     "ava": "^0.0.4"

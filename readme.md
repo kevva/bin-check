@@ -13,9 +13,9 @@ $ npm install --save bin-check
 ## Usage
 
 ```js
-var binCheck = require('bin-check');
+const binCheck = require('bin-check');
 
-binCheck('/bin/sh', ['--version'], function (err, works) {
+binCheck('/bin/sh', ['--version']).then(works => {
 	console.log(works);
 	//=> true
 });
@@ -24,10 +24,13 @@ binCheck('/bin/sh', ['--version'], function (err, works) {
 
 ## API
 
-### binCheck(binary, command, callback)
+### binCheck(binary, [command])
+
+Returns a promise that resolves to a `boolean`.
 
 #### binary
 
+*Required*  
 Type: `string`
 
 Path to the binary.
@@ -38,12 +41,6 @@ Type: `array`
 Default: `['--help']`
 
 Commands to run the binary with.
-
-#### callback(err, works)
-
-Type: `function`
-
-`works` is a `boolean` which returns `true` if the binary is working correctly.
 
 
 ## License
