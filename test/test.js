@@ -1,12 +1,9 @@
-'use strict';
-var path = require('path');
-var test = require('ava');
-var binCheck = require('../');
+import path from 'path';
+import test from 'ava';
+import fn from '../';
 
-test('test a binary and return true', function (t) {
-	t.plan(1);
-
-	var bin = path.join(__dirname, 'fixtures/optipng-linux');
+test('test a binary and return true', async t => {
+	let bin = path.join(__dirname, 'fixtures/optipng-linux');
 
 	if (process.platform === 'darwin') {
 		bin = path.join(__dirname, 'fixtures/optipng-osx');
@@ -14,7 +11,6 @@ test('test a binary and return true', function (t) {
 		bin = path.join(__dirname, 'fixtures/optipng-win32.exe');
 	}
 
-	binCheck(bin).then(function (works) {
-		t.assert(works, works);
-	});
+	const works = await fn(bin);
+	t.true(works);
 });
