@@ -30,14 +30,13 @@ Returns a promise that resolves to a `boolean`.
 
 #### binary
 
-*Required*  
 Type: `string`
 
 Path to the binary.
 
 #### arguments
 
-Type: `array`  
+Type: `Array`<br>
 Default: `['--help']`
 
 Arguments to run the binary with.

@@ -1,6 +1,6 @@
 import path from 'path';
 import test from 'ava';
-import fn from '../';
+import m from './';
 
 const bin = {
 	darwin: path.join(__dirname, 'fixtures/optipng-osx'),
@@ -9,5 +9,5 @@ const bin = {
 };
 
 test(async t => {
-	t.true(await fn(bin[process.platform]));
+	t.true(await m(bin[process.platform]));
 });
