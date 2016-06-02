@@ -24,7 +24,7 @@ binCheck('/bin/sh', ['--version']).then(works => {
 
 ## API
 
-### binCheck(binary, [command])
+### binCheck(binary, [arguments])
 
 Returns a promise that resolves to a `boolean`.
 
@@ -35,12 +35,12 @@ Type: `string`
 
 Path to the binary.
 
-#### command
+#### arguments
 
 Type: `array`  
 Default: `['--help']`
 
-Commands to run the binary with.
+Arguments to run the binary with.
 
 
 ## License

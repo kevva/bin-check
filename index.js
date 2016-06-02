@@ -1,25 +1,21 @@
 'use strict';
-var spawn = require('child_process').spawn;
-var executable = require('executable');
-var Promise = require('pinkie-promise');
+const childProcess = require('child_process');
+const executable = require('executable');
 
-module.exports = function (bin, cmd) {
-	if (!Array.isArray(cmd)) {
-		cmd = ['--help'];
+module.exports = (bin, args) => {
+	if (!Array.isArray(args)) {
+		args = ['--help'];
 	}
 
-	return executable(bin).then(function (works) {
+	return executable(bin).then(works => {
 		if (!works) {
-			return Promise.reject(new Error('Couldn\'t execute the `' + bin + '` binary. Make sure it has the right permissions.'));
+			return Promise.reject(new Error(`Couldn't execute the \`${bin}\` binary. Make sure it has the right permissions.`));
 		}
 
-		return new Promise(function (resolve, reject) {
-			var cp = spawn(bin, cmd);
-
+		return new Promise((resolve, reject) => {
+			const cp = childProcess.spawn(bin, args);
 			cp.on('error', reject);
-			cp.on('exit', function (code) {
-				resolve(code === 0);
-			});
+			cp.on('exit', code => resolve(code === 0));
 		});
 	});
 };
