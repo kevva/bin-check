@@ -1,5 +1,5 @@
 'use strict';
-const childProcess = require('child_process');
+const execa = require('execa');
 const executable = require('executable');
 
 module.exports = (bin, args) => {
@@ -13,7 +13,7 @@ module.exports = (bin, args) => {
 		}
 
 		return new Promise((resolve, reject) => {
-			const cp = childProcess.spawn(bin, args);
+			const cp = execa.spawn(bin, args);
 			cp.on('error', reject);
 			cp.on('exit', code => resolve(code === 0));
 		});

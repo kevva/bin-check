@@ -25,6 +25,7 @@
     "test"
   ],
   "dependencies": {
+    "execa": "^0.4.0",
     "executable": "^2.0.0"
   },
   "devDependencies": {
