@@ -7,15 +7,13 @@ module.exports = (bin, args) => {
 		args = ['--help'];
 	}
 
-	return executable(bin).then(works => {
-		if (!works) {
-			return Promise.reject(new Error(`Couldn't execute the \`${bin}\` binary. Make sure it has the right permissions.`));
-		}
+	return executable(bin)
+		.then(works => {
+			if (!works) {
+				throw new Error(`Couldn't execute the \`${bin}\` binary. Make sure it has the right permissions.`);
+			}
 
-		return new Promise((resolve, reject) => {
-			const cp = execa.spawn(bin, args);
-			cp.on('error', reject);
-			cp.on('exit', code => resolve(code === 0));
-		});
-	});
+			return execa(bin, args);
+		})
+		.then(res => res.code === 0);
 };

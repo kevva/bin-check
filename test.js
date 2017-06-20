@@ -1,6 +1,6 @@
 import path from 'path';
 import test from 'ava';
-import m from './';
+import m from '.';
 
 const bin = {
 	darwin: path.join(__dirname, 'fixtures/optipng-osx'),
@@ -10,4 +10,5 @@ const bin = {
 
 test(async t => {
 	t.true(await m(bin[process.platform]));
+	await t.throws(m(__filename), `Couldn't execute the \`${__filename}\` binary. Make sure it has the right permissions.`);
 });

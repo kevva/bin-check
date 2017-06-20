@@ -6,7 +6,7 @@
 ## Install
 
 ```
-$ npm install --save bin-check
+$ npm install bin-check
 ```
 
 
@@ -26,7 +26,7 @@ binCheck('/bin/sh', ['--version']).then(works => {
 
 ### binCheck(binary, [arguments])
 
-Returns a promise that resolves to a `boolean`.
+Returns a `Promise` for a `boolean`.
 
 #### binary
 

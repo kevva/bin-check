@@ -25,14 +25,11 @@
     "test"
   ],
   "dependencies": {
-    "execa": "^0.4.0",
-    "executable": "^2.0.0"
+    "execa": "^0.7.0",
+    "executable": "^4.1.0"
   },
   "devDependencies": {
     "ava": "*",
     "xo": "*"
-  },
-  "xo": {
-    "esnext": true
   }
 }
