@@ -8,7 +8,12 @@ const bin = {
 	win32: path.join(__dirname, 'fixtures/optipng-win32.exe')
 };
 
-test(async t => {
+test('async', async t => {
 	t.true(await m(bin[process.platform]));
 	await t.throws(m(__filename), `Couldn't execute the \`${__filename}\` binary. Make sure it has the right permissions.`);
+});
+
+test('sync', t => {
+	t.true(m.sync(bin[process.platform]));
+	t.throws(m.sync.bind(null, __filename), `Couldn't execute the \`${__filename}\` binary. Make sure it has the right permissions.`);
 });

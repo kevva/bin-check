@@ -28,6 +28,10 @@ binCheck('/bin/sh', ['--version']).then(works => {
 
 Returns a `Promise` for a `boolean`.
 
+### binCheck.sync(binary, [arguments])
+
+Returns a `boolean`.
+
 #### binary
 
 Type: `string`
